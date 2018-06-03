@@ -1,6 +1,6 @@
 {
   "name": "rx-deep-subject",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RxJS util for converting plain JS-object to object in which every property is either object or BehaviorSubject of primitive",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/arvitaly/rx-deep-subject.git"
   },
-  "keywords": ["rxjs"],
+  "keywords": [
+    "rxjs"
+  ],
   "author": "arvitaly",
   "license": "ISC",
   "bugs": {
