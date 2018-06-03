@@ -1,7 +1,7 @@
 {
   "name": "rx-deep-subject",
   "version": "0.0.1",
-  "description": "RxJS util for converting plain JS-object to object in which every property is object or BehaviorSubject of primitive",
+  "description": "RxJS util for converting plain JS-object to object in which every property is either object or BehaviorSubject of primitive",
   "main": "index.js",
   "scripts": {
     "test": "tsc && tslint --project tsconfig.json && jest --verbose --coverage",

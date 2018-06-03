@@ -1,6 +1,6 @@
 # rx-deep-subject
 
-RxJS util for converting plain JS-object to object in which every property is object or BehaviorSubject of primitive.
+RxJS util for converting plain JS-object to object in which every property is either object or BehaviorSubject of primitive.
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
@@ -24,7 +24,7 @@ const deepSubject = fromObject({
     d: "World",
 });
 // Set next value for BehaviorSubject
-deepSubject.a.b.c.next("Goodbye");
+deepSubject.a.b.next("Goodbye");
 const obj = toObject(deepSubject);
 console.log(obj); // { a: { b: 'Goodbye' }, d: 'World' }
 ```
