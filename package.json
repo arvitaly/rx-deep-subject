@@ -1,0 +1,33 @@
+{
+  "name": "rx-deep-subject",
+  "version": "0.0.1",
+  "description": "RxJS util for converting plain JS-object to object in which every property is object or BehaviorSubject of primitive",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && tslint --project tsconfig.json && jest --verbose --coverage",
+    "watch:test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvitaly/rx-deep-subject.git"
+  },
+  "keywords": ["rxjs"],
+  "author": "arvitaly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arvitaly/rx-deep-subject/issues"
+  },
+  "homepage": "https://github.com/arvitaly/rx-deep-subject#readme",
+  "jest": {},
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "coveralls": "^3.0.1",
+    "jest": "^23.1.0",
+    "rxjs": "^6.2.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "peerDependencies": {
+    "rxjs": "^6.2.0"
+  }
+}
