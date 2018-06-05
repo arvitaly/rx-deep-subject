@@ -1,5 +1,6 @@
 import { BehaviorSubject } from "rxjs";
-import { fromObject, toObject } from ".";
+import { map } from "rxjs/operators";
+import { fromDeepSubject, fromObject, toObject } from ".";
 
 describe("RxDeepSubject tests", () => {
     it("fromObject", () => {
@@ -29,5 +30,18 @@ describe("RxDeepSubject tests", () => {
         };
         const obj = toObject(source);
         expect(obj.b + ", " + obj.c.d.e + "!").toBe("Hello, World!");
+    });
+    it("observable from deep subject", () => {
+        const deepObj = fromObject({
+            a: {
+                b: "HELLO",
+            },
+        });
+        const subscribe = jest.fn();
+        fromDeepSubject(deepObj).pipe(map((v) => v.a.b.toLowerCase())).subscribe(subscribe);
+        deepObj.a.b.next("GOODBYE");
+        expect(subscribe.mock.calls.length).toBe(2);
+        expect(subscribe.mock.calls[0][0]).toBe("hello");
+        expect(subscribe.mock.calls[1][0]).toBe("goodbye");
     });
 });

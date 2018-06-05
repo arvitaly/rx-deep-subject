@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const rxjs_1 = require("rxjs");
+const operators_1 = require("rxjs/operators");
 const _1 = require(".");
 describe("RxDeepSubject tests", () => {
     it("fromObject", () => {
@@ -30,5 +31,18 @@ describe("RxDeepSubject tests", () => {
         };
         const obj = _1.toObject(source);
         expect(obj.b + ", " + obj.c.d.e + "!").toBe("Hello, World!");
+    });
+    it("observable from deep subject", () => {
+        const deepObj = _1.fromObject({
+            a: {
+                b: "HELLO",
+            },
+        });
+        const subscribe = jest.fn();
+        _1.fromDeepSubject(deepObj).pipe(operators_1.map((v) => v.a.b.toLowerCase())).subscribe(subscribe);
+        deepObj.a.b.next("GOODBYE");
+        expect(subscribe.mock.calls.length).toBe(2);
+        expect(subscribe.mock.calls[0][0]).toBe("hello");
+        expect(subscribe.mock.calls[1][0]).toBe("goodbye");
     });
 });
